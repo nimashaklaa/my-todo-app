@@ -31,7 +31,7 @@ export default {
 
 ## Explain the important coding parts in this assignment
 
-- ### **App.tsx**
+### **App.tsx**
 ```jsx
 const [todos, setTodos] = useState<Todo[]>([]);
 ```
@@ -57,7 +57,13 @@ const toggleTodo = (selectedTodoId: number) => {
 - If the id of the current todo matches the `selectedTodoId`, a new todo object is created with the completion status negated `(!todo.completed)`. Otherwise, the current todo is kept unchanged. 
 - The `setTodos` function is then called to update the state with the new array.
 
-- ### **ToDoList.tsx**
+### **ToDoList.tsx**
 ````tsx
-
+export const TodoList: React.FC<TodoListProps> = ({ todos, toggleTodo }) => {
+}
 ````
+- `React.FC`: This is a generic type from the React library that stands for "Functional Component." 
+  - It's a generic type that takes a type argument representing the expected props of the functional component
+- `<TodoListProps>:` This is the type argument provided to React.FC. It specifies the expected props for the `TodoList` component. 
+- `= ({ todos, toggleTodo }) => { ... }`: This is the actual definition of the functional component. 
+  - It's an arrow function that takes the expected props (destructuring them from the props object) and includes the component logic and rendering
