@@ -73,6 +73,12 @@ const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
   - `.target` refers to the target of the event, i.e., the element that triggered the event. 
   - `as HTMLFormElement`is a type assertion, telling TypeScript to treat the target as an HTML form element.
 - `.elements` is a property of an HTML form element that provides access to a collection of all form elements as a `HTMLFormControlsCollection`.
+- `.namedItem('todo')` is a method of `HTMLFormControlsCollection` that retrieves the first form control with the given name.
+-` as HTMLInputElement | null`: Another type assertion is used to tell TypeScript that the result of `.namedItem('todo')` should be treated as an `HTMLInputElement`. 
+- The `| null` part indicates that the result can also be null if the element with the given name is not found.
+
+attempting to retrieve an element with the name `todo` from the form that triggered the event `(e)`. The result `(text)` is then treated as an `HTMLInputElement` or `null`.
+The null part accounts for the possibility that the element is not found.
 
 ### **ToDoList.tsx**
 ````tsx
