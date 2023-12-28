@@ -57,6 +57,23 @@ const toggleTodo = (selectedTodoId: number) => {
 - If the id of the current todo matches the `selectedTodoId`, a new todo object is created with the completion status negated `(!todo.completed)`. Otherwise, the current todo is kept unchanged. 
 - The `setTodos` function is then called to update the state with the new array.
 
+```tsx
+const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+  const text = (e.target as HTMLFormElement).elements.namedItem('todo') as HTMLInputElement | null;
+  if (text && text.value) {
+    addTodo(text.value);
+    (e.target as HTMLFormElement).reset();
+  }
+};
+```
+- `e.preventDefault();`prevents the default form submission behavior, which would cause the page to reload.
+- `(e.target as HTMLFormElement):`
+  - `e` is the event parameter received by the function. 
+  - `.target` refers to the target of the event, i.e., the element that triggered the event. 
+  - `as HTMLFormElement`is a type assertion, telling TypeScript to treat the target as an HTML form element.
+- `.elements` is a property of an HTML form element that provides access to a collection of all form elements as a `HTMLFormControlsCollection`.
+
 ### **ToDoList.tsx**
 ````tsx
 export const TodoList: React.FC<TodoListProps> = ({ todos, toggleTodo }) => {
