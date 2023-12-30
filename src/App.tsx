@@ -11,7 +11,6 @@ const App: React.FC = () => {
         const newTodos = todos.map(todo =>
             todo.id === selectedTodoId ? { ...todo, completed: !todo.completed } : todo
         );
-
         setTodos(newTodos);
     };
 
