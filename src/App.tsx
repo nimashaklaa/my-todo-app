@@ -15,9 +15,7 @@ const App: React.FC = () => {
     };
 
     const addTodo = (text: string) => {
-
         const newTodo: Todo = { id: parseInt(uuidv4()), text: text, completed: false };
-
         setTodos([...todos, newTodo]);
     };
 
@@ -26,9 +24,7 @@ const App: React.FC = () => {
         e.preventDefault();
         const text = (e.target as HTMLFormElement).elements.namedItem('todo') as HTMLInputElement | null;
         if (text && text.value) {
-
             addTodo(text.value);
-
             (e.target as HTMLFormElement).reset();
         }
     };
