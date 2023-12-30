@@ -15,7 +15,9 @@ const App: React.FC = () => {
     };
 
     const addTodo = (text: string) => {
+
         const newTodo: Todo = { id: parseInt(uuidv4()), text: text, completed: false };
+
         setTodos([...todos, newTodo]);
     };
 
