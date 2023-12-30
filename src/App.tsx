@@ -26,6 +26,7 @@ const App: React.FC = () => {
         if (text && text.value) {
 
             addTodo(text.value);
+
             (e.target as HTMLFormElement).reset();
         }
     };
