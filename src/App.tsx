@@ -9,7 +9,7 @@ const App: React.FC = () => {
 
     const toggleTodo = (selectedTodoId: number) => {
         const newTodos = todos.map(todo =>
-            todo.id === selectedTodoId ? { ...todo, completed: !todo.completed } : todo
+            todo.id === selectedTodoId ? { ...todo, completed:  !todo.completed } : todo
         );
         setTodos(newTodos);
     };
